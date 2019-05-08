@@ -7,6 +7,8 @@ public class tictactoe{
 	{
 		
 		System.out.println("TicTacToe");
+		System.out.println("Player ones symbol is: 1");
+		System.out.println("Player twos symbol is: 8");
 		tictactoecore tc= new tictactoecore();
 		/*for(int i=0;i<3;i++)
 		{
@@ -45,12 +47,14 @@ class tictactoecore
 			{
 				a[p1.row][p1.column]=p1.symbol;
 				display();
+				checkWin();
 
 			}
 			else
 			{
 				System.out.println("That cell already marked");
 				display();
+
 			}
 
 			System.out.println("Player 2's turn");
@@ -59,6 +63,7 @@ class tictactoecore
 			{
 				a[p2.row][p2.column]=p2.symbol;
 				display();
+				checkWin();
 			}
 			else
 			{
@@ -107,6 +112,48 @@ class tictactoecore
 		else
 		{
 			return true;
+		}
+
+	}
+	void checkWin()
+	{
+		tictactoecore tc= new tictactoecore();
+		int r=0,c=0,d=0,dx=0;
+		int i,j;
+		for(i=0;i<3;i++)
+		{ 	
+			
+			for(j=0;j<3;j++)
+			{
+				
+				r=r+a[i][j];
+				c=r+a[j][i];
+				tc.result(r);
+				tc.result(c);
+
+
+
+				if(i==j)
+				{
+					d=d+a[i][j];
+					tc.result(d);
+
+				}
+				
+			}
+		}
+		
+
+	}
+	void result(int r)
+	{
+		if(r==3)
+		{
+			System.out.println("Player 1 Won");
+		}
+		if(r==24)
+		{
+			System.out.println("Player 2 Won");
 		}
 
 	}
