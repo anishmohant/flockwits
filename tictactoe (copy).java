@@ -36,34 +36,34 @@ class tictactoecore
 		//tictactoecore tc= new tictactoecore();
 		p1.symbol=1;
 		p2.symbol=8;
-		while(arrayFull!=true)
+		while(tc.arrayFull!=true)
 		{
 			System.out.println("Player 1's turn");
 			p1.strike();
 
-			if(a[p1.row][p1.column]==0)
+			if(tc.a[p1.row][p1.column]==0)
 			{
-				a[p1.row][p1.column]=p1.symbol;
-				display();
+				tc.a[p1.row][p1.column]=p1.symbol;
+				tc.display();
 
 			}
 			else
 			{
 				System.out.println("That cell already marked");
-				display();
+				tc.display();
 			}
 
 			System.out.println("Player 2's turn");
 			p2.strike();
-			if(a[p2.row][p2.column]==0)
+			if(tc.a[p2.row][p2.column]==0)
 			{
-				a[p2.row][p2.column]=p2.symbol;
-				display();
+				tc.a[p2.row][p2.column]=p2.symbol;
+				tc.display();
 			}
 			else
 			{
 				System.out.println("That cell already marked");
-				display();
+				tc.display();
 			}
 			
 		}			
@@ -80,7 +80,7 @@ class tictactoecore
 			for(int j=0;j<3;j++)
 			{
 				
-				System.out.print(a[i][j]+" ");
+				System.out.print(tc.a[i][j]+" ");
 			}
 		}
 		System.out.println("");
