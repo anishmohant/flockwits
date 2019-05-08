@@ -77,7 +77,7 @@ class tictactoecore
 	public void display()
 	{
 		tictactoecore tc= new tictactoecore();
-		System.out.println(" 1 2 3");
+		System.out.print(" 1 2 3");
 		for(int i=0;i<3;i++)
 		{
 			System.out.println("");
@@ -88,6 +88,7 @@ class tictactoecore
 				System.out.print(a[i][j]+" ");
 			}
 		}
+		System.out.println("");
 		System.out.println("");
 	}
 	public boolean arrayFull()
@@ -100,20 +101,24 @@ class tictactoecore
 				if(a[i][j]==0)
 				{
 
-					af=af+1;	
+					af=0;	
 				}
+				else
+				{
+					af=1;
+				}
+				
 			}
 		}
-		if(af>0)
+		if(af==0)
 		{
 			return false;
-
 		}
 		else
 		{
 			return true;
 		}
-
+		
 	}
 	void checkWin()
 	{
@@ -126,7 +131,7 @@ class tictactoecore
 			for(j=0;j<3;j++)
 			{
 				
-				r=r+a[i][j];
+				r=r+a[i][j]; 
 				c=r+a[j][i];
 				tc.result(r);
 				tc.result(c);
@@ -163,13 +168,37 @@ class tictactoecore
 	int symbol;
 	int row;
 	int column;
+	int vr=1, vc=1;
  	void strike()
  	{
  		Scanner reader = new Scanner(System.in); 
- 		System.out.println("Please enter the column to strike");
- 		column=reader.nextInt()-1;
- 		System.out.println("Please enter the row to strike");
- 		row=reader.nextInt()-1;
+ 		while(vc==1)
+ 		{
+ 			System.out.println("Please enter the column to strike");
+ 			column=reader.nextInt()-1;
+ 			if(column<=2 && column>=0)
+ 			{
+ 				vc++;
+ 			}
+ 			else
+ 			{
+ 				System.out.println("Invalid column, Enter a number from 1 to 3");
+ 			}
 
+ 		}
+ 		while(vr==1)
+ 		{
+ 			System.out.println("Please enter the row to strike");
+ 			row=reader.nextInt()-1;
+ 			if(row<=2 && row>=0)
+ 			{
+ 				vr++;
+ 			}
+ 			else
+ 			{
+ 				System.out.println("Invalid row, Enter a number from 1 to 3");
+ 			}
+
+ 		}
  	}
 }
