@@ -50,8 +50,8 @@ public class tictactoe{
 
 class tictactoecore
 {
-	Player p1;
-	Player p2;
+	Player p1=new Player();
+	Player p2=new Player();
 
 	void startgame()
 	{
@@ -60,7 +60,7 @@ class tictactoecore
 		p2.symbol=8;
 		while(t.arrayFull!=true)
 		{
-			
+			System.out.print("Player 1's turn");
 			p1.strike();
 			if(t.a[p1.row][p1.column]==0)
 			{
@@ -70,7 +70,7 @@ class tictactoecore
 			{
 				System.out.print("That cell already marked");
 			}
-			
+			System.out.print("Player 1's turn");
 			p2.strike();
 			if(t.a[p2.row][p2.column]==0)
 			{
