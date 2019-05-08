@@ -8,7 +8,7 @@ public class tictactoe{
 	{
 		
 		System.out.println("TicTacToe");
-		tictactoe t= new tictactoe();
+		tictactoecore tc= new tictactoecore();
 		/*for(int i=0;i<3;i++)
 		{
 			for(int j=0;j<3;j++)
@@ -17,7 +17,8 @@ public class tictactoe{
 			}
 		}*/
 
-		t.display();
+		tc.display();
+		tc.startgame();
 
 	}
 	public boolean arrayFull()
@@ -45,26 +46,9 @@ public class tictactoe{
 		}
 
 	}
-
-	public void display()
-	{
-		System.out.println(" a  b  c");
-		for(int i=0;i<3;i++)
-		{
-			System.out.println("");
-			System.out.print(i+1);
-			for(int j=0;j<3;j++)
-			{
-				
-				System.out.print(a[i][j]+" ");
-			}
-		}
-	}
-
-
 }
 
-public class tictactoecore
+class tictactoecore
 {
 	Player p1;
 	Player p2;
@@ -103,7 +87,7 @@ public class tictactoecore
 	public void display()
 	{
 		tictactoe t= new tictactoe();
-		System.out.println(" 1  2  3");
+		System.out.println(" 1 2 3");
 		for(int i=0;i<3;i++)
 		{
 			System.out.println("");
@@ -116,8 +100,7 @@ public class tictactoecore
 		}
 	}
 }
-
-public class Player
+ class Player
 {
 	int symbol;
 	int row;
