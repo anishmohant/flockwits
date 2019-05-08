@@ -7,7 +7,7 @@ public class EchoTestDrive
 		int x = 0;
 		while(x<4)
 		{
-			el .hello();
+			el.hello();
 			el.count = el.count + 1;
 			if(x==3)
 			{
