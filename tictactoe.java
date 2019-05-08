@@ -20,19 +20,28 @@ public class tictactoe{
 		t.display();
 
 	}
-	void boolean arrayFull()
+	public boolean arrayFull()
 	{
-		int af;
+		int af=0;
 		for(int i=0;i<3;i++)
 		{
 			for(int j=0;j<3;j++)
 			{
-				if(a[i][j]>0)
+				if(a[i][j]==0)
 				{
-					
-					return true	
+
+					af=af+1;	
 				}
 			}
+		}
+		if(af>0)
+		{
+			return false;
+
+		}
+		else
+		{
+			return true;
 		}
 
 	}
@@ -62,11 +71,12 @@ public class tictactoecore
 
 	void startgame()
 	{
+		tictactoe t= new tictactoe();
 		p1.symbol=1;
 		p2.symbol=8;
-		while(arrayFull!=true)
+		while(t.arrayFull!=true)
 		{
-			tictactoe t= new tictactoe();
+			
 			p1.strike();
 			if(t.a[p1.row][p1.column]==0)
 			{
@@ -92,6 +102,7 @@ public class tictactoecore
 	}
 	public void display()
 	{
+		tictactoe t= new tictactoe();
 		System.out.println(" 1  2  3");
 		for(int i=0;i<3;i++)
 		{
@@ -100,7 +111,7 @@ public class tictactoecore
 			for(int j=0;j<3;j++)
 			{
 				
-				System.out.print(a[i][j]+" ");
+				System.out.print(t.a[i][j]+" ");
 			}
 		}
 	}
