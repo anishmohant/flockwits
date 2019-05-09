@@ -28,17 +28,19 @@ public class tictactoe{
 class tictactoecore
 {
 	int [][] a = new int [3][3];
-	boolean arrayFull=false;
+	boolean arrayNotFull=false;
 	Player p1=new Player();
 	Player p2=new Player();
+	boolean win;
 
 	void startgame()
 	{
+		win=false;
 		tictactoe t= new tictactoe();
 		//tictactoecore tc= new tictactoecore();
 		p1.symbol=1;
 		p2.symbol=8;
-		while(arrayFull!=true)
+		while(arrayNotFull() && win==false)
 		{
 			System.out.println("Player 1's turn");
 			p1.strike();
@@ -71,6 +73,10 @@ class tictactoecore
 				display();
 			}
 			
+		}
+		while(arrayNotFull()==true && win==false)
+		{
+			System.out.println("Sorry no winners this time.");
 		}			
 
 	}
@@ -91,34 +97,19 @@ class tictactoecore
 		System.out.println("");
 		System.out.println("");
 	}
-	public boolean arrayFull()
+	public boolean arrayNotFull()
 	{
-		int af=0;
 		for(int i=0;i<3;i++)
 		{
 			for(int j=0;j<3;j++)
 			{
 				if(a[i][j]==0)
 				{
-
-					af=0;	
-				}
-				else
-				{
-					af=1;
-				}
-				
+					return true;
+				}		
 			}
 		}
-		if(af==0)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-		
+		return false;
 	}
 	void checkWin()
 	{
@@ -154,12 +145,16 @@ class tictactoecore
 	{
 		if(r==3)
 		{
-			System.out.println("Player 1 Won");
+			System.out.println("Player 1 Won [1]");
+			win=true;
 		}
 		if(r==24)
 		{
-			System.out.println("Player 2 Won");
+			System.out.println("Player 2 Won [8]");
+			win=true;
 		}
+		
+		
 
 	}
 }
@@ -167,10 +162,10 @@ class tictactoecore
 {
 	int symbol;
 	int row;
-	int column;
-	int vr=1, vc=1;
+	int column;	
  	void strike()
  	{
+ 		int vr=1, vc=1;
  		Scanner reader = new Scanner(System.in); 
  		while(vc==1)
  		{
