@@ -9,7 +9,7 @@ public class tictactoe{
 		System.out.println("TicTacToe");
 		System.out.println("Player ones symbol is: 1");
 		System.out.println("Player twos symbol is: 8");
-		tictactoecore tc= new tictactoecore();
+		tictactoecore tcc= new tictactoecore();
 		/*for(int i=0;i<3;i++)
 		{
 			for(int j=0;j<3;j++)
@@ -18,8 +18,8 @@ public class tictactoe{
 			}
 		}*/
 
-		tc.display();
-		tc.startgame();
+		tcc.display();
+		tcc.startgame();
 
 	}
 	
@@ -30,14 +30,13 @@ class tictactoecore
 	int [][] a = new int [3][3];
 	boolean arrayNotFull=false;
 	Player p1=new Player();
-	Player p2=new Player();
-	boolean win;
+	Player p2=new Player();	
+	boolean win=false;
+	
 
 	void startgame()
 	{
-		win=false;
-		tictactoe t= new tictactoe();
-		//tictactoecore tc= new tictactoecore();
+		
 		p1.symbol=1;
 		p2.symbol=8;
 		while(arrayNotFull() && win==false)
@@ -74,7 +73,7 @@ class tictactoecore
 			}
 			
 		}
-		while(arrayNotFull()==true && win==false)
+		while(arrayNotFull() && win==false)
 		{
 			System.out.println("Sorry no winners this time.");
 		}			
@@ -118,25 +117,36 @@ class tictactoecore
 		int i,j;
 		for(i=0;i<3;i++)
 		{ 	
-			
-			for(j=0;j<3;j++)
+			if(a[i][0]==a[i][1] && a[i][1]==a[i][2])    //rows
 			{
-				
-				r=r+a[i][j]; 
-				c=r+a[j][i];
-				tc.result(r);
-				tc.result(c);
+				tc.result(a[i][0]+a[i][1]+a[i][2]);
+			}
+			if(a[0][i]==a[1][i] && a[1][i]==a[2][i])    //columns
+			{
+				tc.result(a[0][i]+a[1][i]+a[2][i]);
+			}
+
+			if(a[0][2]==a[1][1] && a[1][1]==a[2][0])    //ascending diagonal
+			{
+				tc.result(a[0][2]+a[1][1]+a[2][0]);
+			}
 
 
-
+			for(j=0;j<3;j++)
+			{	
 				if(i==j)
 				{
 					d=d+a[i][j];
 					tc.result(d);
-
 				}
 				
 			}
+
+
+
+
+
+
 		}
 		
 
